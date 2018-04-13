@@ -26,7 +26,7 @@ public class Account extends ReflectiveMutableCommandProcessingAggregate<Account
     if(deleted)
       return new ArrayList<>();
 
-    if (balance.compareTo(cmd.getAmount()) < 0)
+    if (balance.compareTo(cmd.getAmount()) >= 0)
       return EventUtil.events(new AccountDebitFailedDueToInsufficientFundsEvent(cmd.getTransactionId()));
     else
       return EventUtil.events(new AccountDebitedEvent(cmd.getAmount(), cmd.getTransactionId()));
