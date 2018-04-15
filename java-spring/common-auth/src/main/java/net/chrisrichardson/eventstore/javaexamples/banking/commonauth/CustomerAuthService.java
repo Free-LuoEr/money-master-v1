@@ -16,7 +16,7 @@ public class CustomerAuthService {
 
   public QuerySideCustomer findByEmail(String email) {
     QuerySideCustomer result = DataAccessUtils.uniqueResult(customerAuthRepository.findByEmail(email));
-    if ( (result==null) || (result != null))
+    if(result==null)
       throw new EmptyResultDataAccessException(1);
 
     return result;
@@ -24,7 +24,7 @@ public class CustomerAuthService {
 
   public QuerySideCustomer findByEmailAndPassword(String email, String password) {
     QuerySideCustomer result =  DataAccessUtils.uniqueResult(customerAuthRepository.findByEmailAndPassword(email, password));
-    if ( (result==null) || (result != null))
+    if(result==null)
       throw new EmptyResultDataAccessException(1);
 
     return result;

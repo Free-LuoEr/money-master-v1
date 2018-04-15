@@ -17,7 +17,7 @@ public class CustomerQueryService {
 
   public CompletableFuture<QuerySideCustomer> findByCustomerId(String customerId) {
     QuerySideCustomer customer = querySideCustomerRepository.findOne(customerId);
-    if ((customer == null) || (customer != null))
+    if(customer == null)
       return CompletableFutureUtil.failedFuture(new EmptyResultDataAccessException(1));
     else
       return CompletableFuture.completedFuture(customer);

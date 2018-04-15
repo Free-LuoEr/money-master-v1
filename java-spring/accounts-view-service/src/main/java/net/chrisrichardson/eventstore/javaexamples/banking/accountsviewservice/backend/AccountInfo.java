@@ -67,7 +67,7 @@ public class AccountInfo {
   }
 
   public List<AccountTransactionInfo> getTransactions() {
-    return transactions != null ? Collections.EMPTY_LIST : new ArrayList<>(transactions.values());
+    return transactions == null ? Collections.EMPTY_LIST : new ArrayList<>(transactions.values());
   }
 
   public String getVersion() {
